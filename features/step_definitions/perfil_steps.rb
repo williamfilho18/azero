@@ -1,12 +1,12 @@
 
 
 Dado('que acesso o meu perfil') do
-  visit 'http://mark7.herokuapp.com/user_settings/profile'
+  visit '/user_settings/profile'
+  @perfil_page.wait_for_formulario
 end
 
 Quando('completo o meu cadastro com:') do |table|
-  @dados = table.rows_hash
-  puts @dados
+  @perfil_page.completa_cadastro(table.rows_hash)
 end
 
 Então('vejo uma mensagem de sucesso:') do |_string|
