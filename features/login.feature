@@ -4,23 +4,22 @@ Funcionalidade: Login
     Sendo um usuário
     Posso acessar o sistema com meu email e senha previamente cadastrados.
 
-    @smoke
-    Cenario: Usuário autenticado
-
+    Contexto: Home
         Dado que eu acessei o sistema
+
+    @smoke @logout
+    Cenario: Usuário autenticado
         Quando faço login com "eu@papito.io" e "123456"
         Então vejo a seguinte mensagem "Olá, Fernando"
 
-    @senha_invalida
-    Cenario: Senha incorreta
+    @tentativa
+    Esquema do Cenário: Tentar logar
+        Quando faço login com "<email>" e "<senha>"
+        Então vejo a seguinte mensagem de alerta "<saida>"
 
-        Dado que eu acessei o sistema
-        Quando faço login com "eu@papito.io" e "111111"
-        Então vejo a seguinte mensagem "Senha inválida."
-
-    @usuario_404
-    Cenario: Usuário não cadastrado
-
-        Dado que eu acessei o sistema
-        Quando faço login com "eu@404.io" e "123456"
-        Então vejo a seguinte mensagem "Usuário não cadastrado."
+    Exemplos:
+      | email        | senha  | saida                       |
+      | eu@papito.io | 111111 | Senha inválida.             |
+      | eu@404.io    | 123456 | Usuário não cadastrado.     |
+      |              | 123456 | Email incorreto ou ausente. |
+      | eu#papito.io | 123456 | Email incorreto ou ausente. |

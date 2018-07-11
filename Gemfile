@@ -1,6 +1,7 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
+gem 'capybara', '3.0.3'
 gem 'cucumber'
 gem 'rspec'
-gem 'capybara'
 gem 'selenium-webdriver'
+gem 'site_prism', '2.15'
