@@ -1,5 +1,5 @@
 Dado('que eu acessei o sistema') do
-  visit '/'
+  @login_page.load
 end
 
 Quando('faço login com {string} e {string}') do |email, senha|

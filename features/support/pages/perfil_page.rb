@@ -1,10 +1,18 @@
 class PerfilPage < SitePrism::Page
+  set_url '/user_settings/profile'
   element :formulario, '#user-settings-profile-edit-form'
   element :campo_empresa, '#profile-company'
   element :combo_cargo, 'select[name$=job]'
+  element :botao_salvar, '#form-submit-button'
+  element :alerta, '.panel-c-success'
 
   def completa_cadastro(cadastro)
     campo_empresa.set cadastro[:empresa]
-    sleep 10
+
+    combo_cargo.find(
+      'option', text: cadastro[:cargo]
+    ).select_option
+
+    botao_salvar.click
   end
 end

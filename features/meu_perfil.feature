@@ -10,8 +10,8 @@ Funcionalidade: Meu perfil
 
         Dado que acesso o meu perfil
         Quando completo o meu cadastro com:
-            | empresa | Apple |
-            | cargo   | CEO   |
+            | empresa | Yahoo |
+            | cargo   | CTO   |
         Então vejo uma mensagem de sucesso:
         """
         Perfil atualizado com sucesso.
