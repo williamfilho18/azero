@@ -1,16 +1,17 @@
 Dado('que eu tenho uma tarefa com os seguintes atributos:') do |table|
-  puts @tarefa = table.rows_hash
+  @tarefa = table.rows_hash
+  DAO.new.deleta_tarefa(@tarefa[:nome])
 end
 
 Dado('eu quero taguear esta tarefa com:') do |table|
-  puts @tags = table.hashes
+  @tags = table.hashes
 end
 
 Quando('faço o cadastro dessa tarefa') do
   @tarefas_page.botao_novo.click
   @tarefas_page.wait_for_adicionar
   @tarefas_page.adicionar.nova(@tarefa)
-  sleep 10
+  sleep 5
 end
 
 Então('devo ver está tarefa com o status {string}') do |_string|

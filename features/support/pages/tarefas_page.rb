@@ -1,4 +1,3 @@
-require 'faker'
 
 class AdicionarPage < SitePrism::Section
   element :campo_nome, 'input[name=title]'
@@ -6,7 +5,7 @@ class AdicionarPage < SitePrism::Section
   element :botao_cadastrar, '#form-submit-button'
 
   def nova(tarefa)
-    campo_nome.set tarefa[:nome] + ' ' + Faker::Lorem.characters(5)
+    campo_nome.set tarefa[:nome]
     campo_data.set tarefa[:data]
     botao_cadastrar.click
   end
