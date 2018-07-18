@@ -7,7 +7,10 @@ Dado('eu quero taguear esta tarefa com:') do |table|
 end
 
 Quando('faço o cadastro dessa tarefa') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @tarefas_page.botao_novo.click
+  @tarefas_page.wait_for_adicionar
+  @tarefas_page.adicionar.nova(@tarefa)
+  sleep 10
 end
 
 Então('devo ver está tarefa com o status {string}') do |_string|
