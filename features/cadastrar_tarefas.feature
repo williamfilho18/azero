@@ -10,13 +10,13 @@ Funcionalidade: Cadastrar tarefas
     Cenario: Nova tarefa
 
         Dado que eu tenho uma tarefa com os seguintes atributos:
-            | nome | Planejar viagem para Amsterdam |
-            | data | 30/07/2018                     |
+            | nome | Ler um livro de Ruby |
+            | data | 30/07/2018           |
         E eu quero taguear esta tarefa com:
-            | tag     |
-            | viagem  |
-            | mala    |
-            | doidao  |
+            | tag         |
+            | ruby        |
+            | programação |
+            | estudo      |
         Quando faço o cadastro dessa tarefa
-        Então devo ver está tarefa com o status "Em andamento"
+        Então devo ver esta tarefa com o status "Em andamento"
         E devo ver somente 1 tarefa com o nome cadastrado

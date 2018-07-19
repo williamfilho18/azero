@@ -14,6 +14,14 @@ end
 class TarefasPage < SitePrism::Page
   element :ola, '.panel-body h3'
   element :botao_novo, '#insert-button'
+  element :campo_busca, '#search-input'
+  element :botao_busca, '#search-button'
 
   section :adicionar, AdicionarPage, '#add-task-view'
+
+  def busca(nome)
+    campo_busca.set nome
+    botao_busca.click
+  end
+
 end
