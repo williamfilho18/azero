@@ -20,5 +20,6 @@ end
 
 Então('devo ver somente {int} tarefa com o nome cadastrado') do |quantidade|
   @tarefas_page.busca(@tarefa[:nome])
-  sleep 10
+  registros = all('#tasks tbody tr')
+  expect(registros.size).to eql quantidade
 end
