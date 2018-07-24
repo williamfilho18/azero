@@ -33,6 +33,7 @@ Funcionalidade: Cadastrar tarefas
         Mas eu ja cadastrei esta tarefa e não tinha percebido
         Quando faço o cadastro dessa tarefa
         Então devo ver "Tarefa duplicada" como mensagem de alerta
+        E devo ver somente 1 tarefa com o nome cadastrado
 
     @login @nome_curto @logout
     Cenario: Nome curto

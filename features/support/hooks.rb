@@ -20,3 +20,8 @@ end
 After('@logout') do
   @nav.logout
 end
+
+After do |scenario|
+  nome_cenario = scenario.name.gsub(/[^A-Za-z0-9 ]/, '')
+  puts nome_cenario = nome_cenario.tr(' ', '_').downcase!
+end
