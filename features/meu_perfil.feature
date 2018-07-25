@@ -5,7 +5,7 @@ Funcionalidade: Meu perfil
     Sendo um usuário cadastrado
     Posso completar o meu cadastrado
 
-    @login
+    @login @logout
     Cenario: Completar cadastro
 
         Dado que acesso o meu perfil

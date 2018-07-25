@@ -19,7 +19,7 @@ Quando('faço o cadastro dessa tarefa') do
   @tarefas_page.wait_for_botao_novo
   @tarefas_page.botao_novo.click
   @tarefas_page.wait_for_adicionar
-  @tarefas_page.adicionar.nova(@tarefa)
+  @tarefas_page.adicionar.nova(@tarefa, @tags)
 end
 
 Então('devo ver esta tarefa com o status {string}') do |status_tarefa|
@@ -28,6 +28,8 @@ Então('devo ver esta tarefa com o status {string}') do |status_tarefa|
 end
 
 Então('devo ver somente {int} tarefa com o nome cadastrado') do |quantidade|
+  @tarefas_page.load
+  @tarefas_page.wait_for_ola
   @tarefas_page.busca(@tarefa[:nome])
   registros = all('#tasks tbody tr')
   expect(registros.size).to eql quantidade
