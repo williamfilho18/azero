@@ -23,5 +23,10 @@ end
 
 After do |scenario|
   nome_cenario = scenario.name.gsub(/[^A-Za-z0-9 ]/, '')
-  puts nome_cenario = nome_cenario.tr(' ', '_').downcase!
+  nome_cenario = nome_cenario.tr(' ', '_').downcase!
+  
+  screenshot = "log/screenshots/#{nome_cenario}.png"
+  page.save_screenshot(screenshot)
+  embed(screenshot, 'image/png', 'Evidencia')
 end
+

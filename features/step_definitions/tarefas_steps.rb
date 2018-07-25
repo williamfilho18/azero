@@ -35,3 +35,44 @@ Então('devo ver {string} como mensagem de alerta') do |alerta|
   @tarefas_page.adicionar.wait_for_alerta
   expect(@tarefas_page.adicionar.alerta).to have_content alerta
 end
+
+
+# Remover
+
+Dado("que eu tenho uma tarefa indesejada") do
+  @tarefa = {
+    :nome => 'Tarefa muito boa para morrer',
+    :data => '30/07/2018'
+  }
+  DAO.new.deleta_tarefa(@tarefa[:nome])
+  steps %(
+    Quando faço o cadastro dessa tarefa
+  )
+
+  # @tarefas_page.wait_for_botao_novo
+  # @tarefas_page.botao_novo.click
+  # @tarefas_page.wait_for_adicionar
+  # @tarefas_page.adicionar.nova(@tarefa)
+end
+
+Quando("eu solicito a exclusão desta tarefa") do
+  tarefa_encontrada = find('table tbody tr', text: @tarefa[:nome])
+  tarefa_encontrada.find('#delete-button').click
+  sleep 10
+end
+
+Quando("confirmo esta solicitação") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então("esta tarefa não deve ser exibida na lista") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando("desisto da confirmação") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então("esta tarefa deve permanecer na lista") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
