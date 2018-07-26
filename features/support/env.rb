@@ -5,7 +5,7 @@ require 'poltergeist'
 
 @browser = ENV['BROWSER']
 
-if @browser.eql?('headless')
+if @browser.eql?('phantomjs')
   Capybara.register_driver :selenium do |app|
     Capybara::Poltergeist::Driver.new(app, { js_errors: false })
   end
